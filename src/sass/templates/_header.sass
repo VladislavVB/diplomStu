@@ -1,0 +1,39 @@
+.header
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  z-index: 99
+  padding: 24px 0
+  background-color: $dark
+.menu
+  display: flex
+  justify-content: space-between
+  align-items: center
+.logo
+  font-size: 1.075rem
+  text-transform: uppercase
+  &__link
+    text-decoration: none
+    color: $primary
+.nav
+  &__item
+    color: $light
+    text-decoration: none
+    text-transform: uppercase
+    margin-right: 2.5rem
+    transition: color 0.2s
+    &:hover
+      color: $primary  
+.phone
+  text-decoration: none
+  color: $primary
+  border-bottom: 1px solid $primary
+  &:hover
+    border-bottom: none
+    transition: 0.3s
+  &:active
+    color: $light
+.contacts
+  &__phone
+    margin-right: 1rem

@@ -1,0 +1,81 @@
+.team
+  background: url('../img/bg-lines.svg') repeat 100% 100%
+  margin-bottom: 1.5rem
+  &__section-title
+    margin-top: -34.5rem
+    margin-bottom: 5.7rem
+  &__text
+    color: $gray
+    max-width: 40rem
+    margin: auto
+    font-size: 1.428rem
+    font-weight: normal
+    line-height: 2.41rem
+    margin-top: 6.5rem
+    text-align: center   
+    &::before
+      content: ''
+      display: block
+      margin: auto
+      margin-bottom: 0.6rem
+      width: 55px
+      height: 2px
+      background-color: $primary
+  &__card
+    max-width: 21rem
+    position: relative
+    &--project
+      &::after
+        content: ''
+        left: -2.6rem
+        width: 5rem
+        height: 5rem
+        position: absolute 
+        top: -2.6rem      
+        background: $primary url('../img/team/idea.svg') no-repeat center
+        box-shadow: 5px 5px 10px rgba($primary, 0.3)
+    &--design
+      &::after
+        content: ''
+        top: -2.6rem
+        left: -2.6rem
+        width: 5rem
+        height: 5rem
+        position: absolute      
+        background: $primary url('../img/team/design.svg') no-repeat center
+        box-shadow: 5px 5px 10px rgba($primary, 0.3)
+    &--manage
+      &::after
+        content: ''
+        top: -2.6rem
+        left: -2.6rem
+        width: 5rem
+        height: 5rem
+        position: absolute
+        background: $primary url('../img/team/portfolio.svg') no-repeat center
+        box-shadow: 5px 5px 10px rgba($primary, 0.3)
+.card
+  &__text
+    &--down
+      align-items: center
+      max-width: 16.7rem
+      margin-top: -5.8rem
+      padding: 1.7rem 0.5rem
+      display: flex
+      flex-direction: column      
+  &__label
+    font-family: 'Futura Book', sans-serif
+    font-size: 1.285rem
+    font-weight: normal
+    line-height: 1.8rem
+    color: $secondary
+  &__pricetag
+    &--down
+      font-size: 0.9rem
+      text-align: center
+      box-shadow: none
+      padding-top: 1.1rem 
+      padding-bottom: 1.1rem 
+      left: 0
+      right: 0
+      bottom: -2.7rem

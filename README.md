@@ -1,1 +1,1 @@
-# diplomStu
+# successful
