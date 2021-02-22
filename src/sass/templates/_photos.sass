@@ -1,0 +1,85 @@
+.photos  
+  // background: url('../img/photos/photosbg.jpg') no-repeat center
+  padding-top: 0.9rem
+  background-color: $main
+  position: relative
+  padding-bottom: 4.5rem
+  &__image
+    border: 4px solid $white
+  &__text
+    &--first
+      
+      margin-bottom: -5rem
+    &--second
+      margin-top: 2.3rem
+      
+.bg-photo
+  &--first
+    display: none
+    position: absolute
+    left: -19.5rem
+    top: 11rem
+  &--second
+    display: none
+    position: absolute
+    top: 10.5rem
+    left: 6rem
+.swiper-container
+  width: 566px
+  height: 334px
+.swiper
+  &-object
+    position: relative
+  &-navigation
+    &-wrapper
+      position: absolute
+      display: flex
+      justify-content: center
+      align-items: center
+      background: rgba($black-font, 0.3)
+      border-radius: 3px
+      width: 100px
+      height: 20px
+      // margin-left: 17.5rem
+      // bottom: 5.5rem
+      z-index: 11
+      left: 40%
+      bottom: 1.5rem
+      transform: translateX (-40%)
+  &-pagination
+    &-bullet
+      margin-right: 5px
+      display: inline-block
+      background-color: $white
+      opacity: 1
+      border-radius: 0px
+      &s
+        bottom: 2px
+        left: 20px
+      &-active
+        background-color: $red
+        outline: none
+  &-button
+    &-prev
+      left: -3px
+      outline: none
+      &::after
+        display: none
+    &-next
+      right: 0
+      outline: none
+      &::after
+        display: none
+.row
+  display: flex
+.col-60
+  width: 60%
+.col-40
+  font-weight: 300
+  line-height: 1.7rem
+  margin-left: 2rem
+  width: 40%
+  display: flex
+  flex-direction: column
+  font-size: 1.142rem
+  justify-content: space-around

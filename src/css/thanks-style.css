@@ -1,0 +1,11 @@
+.hero {
+  background: url('../img/hero/bread.png') center no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+@media screen and (max-width: 576px) {
+  .hero {
+    background: none
+  }
+}

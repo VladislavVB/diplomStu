@@ -1,0 +1,24 @@
+.wraper
+  &-calc
+    display: flex
+    justify-content: space-between
+.calc
+  &-input
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    &-value
+      padding: 10px 0
+      color: $black
+      border: 2px solid $primary
+  &-range
+    background-color: $primary
+    cursor: pointer
+    height: 0px
+    color: $primary
+    background-color: $primary
+    &::after
+      background-color: #fff
+    &::before
+      color: $primary
+      background-color: $primary

@@ -1,11 +1,8 @@
 <?php
 
-$userName = $_POST['userName'];
-$userPhone = $_POST['userPhone'];
-$userEmail = $_POST['userEmail'];
-$userQuestion = $_POST['userQuestion'];
-$formName = $_POST['formName'];
-
+  $userName = $_POST['userName'];
+  $userPhone = $_POST['userPhone'];  
+  $userEmail = $_POST['userEmail'];
 // Load Composer's autoloader
 require 'phpmailer/Exception.php';
 require 'phpmailer/PHPMailer.php';
@@ -32,30 +29,12 @@ try {
     
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = "Новая заявка с сайта";
-    
-    if ($formName == 'modal-form') {
-        $mail->Body    = "Имя пользователя ${userName}, его телефон: ${userPhone}. Его почта: ${userEmail}";
-    } else if ($formName == 'control-form') {
-        $mail->Body    = "Имя пользователя ${userName}, его телефон: ${userPhone}.";
-    } else if ($formName == 'footer-form') {
-        $mail->Body    = "Имя пользователя ${userName}, его телефон: ${userPhone}. Его вопрос: ${userQuestion}";
-    } else {
-        $mail->ErrorInfo = 'Invalid form name';
-        throw new Exception('Invalid form name');
-    }    
-    
-// header('Location: index.html');
-  
-    $result = $mail->send();
-    // Проверяем результат отправки сообщения
-    if ($result == true) {
-    echo "Форма успешно отправлена";
-    } else {
-    echo "Сообщение не был отправлено. Неверно указаны настройки вашей почты";
-    }
+    $mail->subject    = 'Новая заявка с сайта';
 
-    } catch (Exception $e) {
-        echo "Письмо не отправлено, есть ошибка. Код ошибки: {$mail->ErrorInfo}";
-    }
-?>
+    $mail->Body = "Имя пользователя: ${userName}, его телефон: ${userPhone}, его почта: ${userEmail}";
+    $mail->send();
+    header('Location: thanks.html');
+
+} catch (Exception $e) {
+    echo "Письмо не отправлено, есть ошибка. Код ошибки: {$mail->ErrorInfo}";
+}

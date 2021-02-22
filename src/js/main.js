@@ -1,203 +1,284 @@
-if (!window.jQuery) {
-  document.write('<script type="text/javascript" src="/js/lib/jquery.js"></script>')
-}
-
 $(document).ready(function () {
-
-
-
-  var modal = $('.modal');
-  var modalUp = $('.modal-up');
-
-  var modalForm = $('.modal__form');
-  var controlForm = $('.control__form');
-  var footerForm = $('.footer__form');
-
-  onSubmitForm(modalForm)
-  onSubmitForm(controlForm)
-  onSubmitForm(footerForm)
-
-  $('[data-toggle=modal]').on('click', function () {
-    modal.toggleClass('modal--visible');
+  var form = $('.modal'),
+      formBtn = $('[data-toggle="modal"]'),
+      closeBtn = $('.modal__close');
+  
+  formBtn.on('click', function () {
+    form.toggleClass('modal--visible');    
+  });
+  closeBtn.on('click', function () {
+    form.toggleClass('modal--visible');
   });
 
-  $('.modal__close').on('click', function () {
-    modal.toggleClass('modal--visible');
+  var form1 = $('.info-modal--bread'),
+      formBtn1 = $('[data-toggle="info-modal--bread"]'),
+      closeBtn1 = $('.info-modal--bread__close');
+  
+  formBtn1.on('click', function () {
+    form1.toggleClass('info-modal--bread--visible');    
+  });
+  closeBtn1.on('click', function () {
+    form1.toggleClass('info-modal--bread--visible');
   });
 
-  $('.modal-up__close').on('click', function () {
-    modalUp.removeClass('modal-up--visible');
+  var form2 = $('.info-modal--bread-small'),
+      formBtn2 = $('[data-toggle="info-modal--bread-small"]'),
+      closeBtn2 = $('.info-modal--bread-small__close');
+  
+  formBtn2.on('click', function () {
+    form2.toggleClass('info-modal--bread-small--visible');    
+  });
+  closeBtn2.on('click', function () {
+    form2.toggleClass('info-modal--bread-small--visible');
   });
 
-  $(document).keydown(function () {
-    if (event.keyCode == 27) {
-      modal.removeClass('modal--visible');
-      modalUp.removeClass('modal-up--visible');
-    }
+  var form3 = $('.info-modal--buns'),
+  formBtn3 = $('[data-toggle="info-modal--buns"]'),
+  closeBtn3 = $('.info-modal--buns__close');
+
+  formBtn3.on('click', function () {
+  form3.toggleClass('info-modal--buns--visible');    
+  });
+  closeBtn3.on('click', function () {
+  form3.toggleClass('info-modal--buns--visible');
   });
 
-  // slider
-  var mySwiper = new Swiper('.swiper-container', {
+  var form4 = $('.info-modal--confectionery'),
+  formBtn4 = $('[data-toggle="info-modal--confectionery"]'),
+  closeBtn4 = $('.info-modal--confectionery__close');
+
+  formBtn4.on('click', function () {
+  form4.toggleClass('info-modal--confectionery--visible');    
+  });
+  closeBtn4.on('click', function () {
+  form4.toggleClass('info-modal--confectionery--visible');
+  });
+
+  var form5 = $('.info-modal--crispbreads'),
+  formBtn5 = $('[data-toggle="info-modal--crispbreads"]'),
+  closeBtn5 = $('.info-modal--crispbreads__close');
+
+  formBtn5.on('click', function () {
+  form5.toggleClass('info-modal--crispbreads--visible');    
+  });
+  closeBtn5.on('click', function () {
+  form5.toggleClass('info-modal--crispbreads--visible');
+  });
+
+  var form6 = $('.info-modal--muesli'),
+  formBtn6 = $('[data-toggle="info-modal--muesli"]'),
+  closeBtn6 = $('.info-modal--muesli__close');
+
+  formBtn6.on('click', function () {
+  form6.toggleClass('info-modal--muesli--visible');    
+  });
+  closeBtn6.on('click', function () {
+  form6.toggleClass('info-modal--muesli--visible');
+  });
+
+  var mySwiper = new Swiper ('#swiper-container', {
+    noSwiping:true,
     loop: true,
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
+      clickable: true,
     },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-  })
-  var next = $('.swiper-button-next');
-  var prev = $('.swiper-button-prev');
-  var bullets = $('.swiper-pagination');
-
-  next.css('left', prev.width() + 20 + bullets.width() + 20)
-  bullets.css('left', prev.width() + 20)
-
-  new WOW().init();
-
-  modalForm.validate({
-    errorClass: "invalid",
-    errorElement: "div",
-    errorPlacement: function (error, element) {
-      if (element.attr("type") == "checkbox") {
-        return element.next('label').append(error);
-      }
-      error.insertAfter($(element));
-    },
-    rules: {
-
-      userName: {
-        required: true,
-        minlength: 2
-      },
-
-      userPhone: {
-        required: true,
-        minlength: 17
-      },
-
-      userEmail: {
-        required: true,
-        email: true
-      },
-
-      policyCheckbox: "required",
-    },
-    messages: {
-      userName: {
-        required: "Имя обязательно для заполнения",
-        minlength: "Имя не короче 2-х букв"
-      },
-      userPhone: "Телефон обязателен для заполнения",
-      userEmail: {
-        required: "Обязательно укажите Email",
-        email: "Введите в формате: name@domain.com"
-      },
-      policyCheckbox: "Обязательно для заполнения",
-    }
+    
   });
 
-  function onSubmitForm(form) {
-    form.submit(function (event) {
-      if (form.valid()) {
-        event.preventDefault();
-        $.ajax({
-          type: "POST",
-          url: "send.php",
-          data: $(this).serialize(),
-          success: function (response) {
-            form[0].reset();
-            $('.modal').removeClass('modal--visible');
-            $('.modal-up').addClass('modal-up--visible');
-            console.log(response)
-            ym('56835025', 'reachGoal', 'submit'); return true
+  var mySwiper1 = new Swiper ('#swiper-container-about', {
+    noSwiping:true,
+    loop:true,
+    pagination: {
+      el: '.swiper-pagination-about',
+      type: 'bullets',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next-about',
+      prevEl: '.swiper-button-prev-about',
+    },
+    
+  });
 
-          },
-          error: function (jqXHR, textStatus, errorThrown) {
-            console.error(jqXHR + " " + textStatus);
-
-          }
+  //Переменная для включения/отключения индикатора загрузки
+  var spinner = $('.ymap-container').children('.loader');
+  //Переменная для определения была ли хоть раз загружена Яндекс.Карта (чтобы избежать повторной загрузки при наведении)
+  var check_if_load = false;
+  //Необходимые переменные для того, чтобы задать координаты на Яндекс.Карте
+  var myMapTemp, myPlacemarkTemp;
+  
+  //Функция создания карты сайта и затем вставки ее в блок с идентификатором &#34;map-yandex&#34;
+  function init () {
+    var myMapTemp = new ymaps.Map("map-yandex", {
+      center: [55.794737, 37.701954], // координаты центра на карте
+      zoom: 15, // коэффициент приближения карты
+      controls: ['zoomControl', 'fullscreenControl'] // выбираем только те функции, которые необходимы при использовании
+    });
+    var myPlacemarkTemp = new ymaps.Placemark([55.794737, 37.701954], {
+        balloonContentHeader: 'Проба',
+    }, {
+        // Опции.
+        // Необходимо указать данный тип макета.
+        iconLayout: 'img/map-marker.png',
+        // Своё изображение иконки метки.
+        iconImageHref: 'img/map-marker.png',
+        // Размеры метки.
+        iconImageSize: [32, 32],
+        // Смещение левого верхнего угла иконки относительно
+        // её "ножки" (точки привязки).
+        iconImageOffset: [-25, -50],
+    });
+    myMapTemp.geoObjects.add(myPlacemarkTemp); // помещаем флажок на карту
+    myMapTemp.behaviors.disable('scrollZoom');
+    // Получаем первый экземпляр коллекции слоев, потом первый слой коллекции
+    var layer = myMapTemp.layers.get(0).get(0);
+  
+    // Решение по callback-у для определения полной загрузки карты
+    waitForTilesLoad(layer).then(function() {
+      // Скрываем индикатор загрузки после полной загрузки карты
+      spinner.removeClass('is-active');
+    });
+  }
+  
+  // Функция для определения полной загрузки карты (на самом деле проверяется загрузка тайлов) 
+  function waitForTilesLoad(layer) {
+    return new ymaps.vow.Promise(function (resolve, reject) {
+      var tc = getTileContainer(layer), readyAll = true;
+      tc.tiles.each(function (tile, number) {
+        if (!tile.isReady()) {
+          readyAll = false;
+        }
+      });
+      if (readyAll) {
+        resolve();
+      } else {
+        tc.events.once("ready", function() {
+          resolve();
         });
       }
     });
   }
-
-  controlForm.validate({
-    errorClass: "invalid",
-    errorElement: "div",
-    errorPlacement: function (error, element) {
-      if (element.attr("type") == "checkbox") {
-        return element.next('label').append(error);
+  
+  function getTileContainer(layer) {
+    for (var k in layer) {
+      if (layer.hasOwnProperty(k)) {
+        if (
+          layer[k] instanceof ymaps.layer.tileContainer.CanvasContainer
+          || layer[k] instanceof ymaps.layer.tileContainer.DomContainer
+        ) {
+          return layer[k];
+        }
       }
-      error.insertAfter($(element));
-    },
-    rules: {
-      userName: {
-        required: true,
-        minlength: 2
-      },
-      userPhone: {
-        required: true,
-        minlength: 17
-      },
-      policyTick: "required",
-    },
-    messages: {
-      userName: {
-        required: "Имя обязательно для заполнения",
-        minlength: "Имя не короче 2-х букв"
-      },
-      userPhone: "Телефон обязателен для заполнения",
-      policyTick: "Обязательно для заполнения",
     }
+    return null;
+  }
+  
+  // Функция загрузки API Яндекс.Карт по требованию (в нашем случае при наведении)
+  function loadScript(url, callback){
+    var script = document.createElement("script");
+  
+    if (script.readyState){  // IE
+      script.onreadystatechange = function(){
+        if (script.readyState == "loaded" ||
+                script.readyState == "complete"){
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else {  // Другие браузеры
+      script.onload = function(){
+        callback();
+      };
+    }
+  
+    script.src = url;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  }
+  
+  // Основная функция, которая проверяет когда мы навели на блок с классом &#34;ymap-container&#34;
+  var ymap = function() {
+    $('.ymap-container').mouseenter(function(){
+        if (!check_if_load) { // проверяем первый ли раз загружается Яндекс.Карта, если да, то загружаем
+  
+        // Чтобы не было повторной загрузки карты, мы изменяем значение переменной
+          check_if_load = true; 
+  
+      // Показываем индикатор загрузки до тех пор, пока карта не загрузится
+          spinner.addClass('is-active');
+  
+      // Загружаем API Яндекс.Карт
+          loadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;loadByRequire=1", function(){
+            // Как только API Яндекс.Карт загрузились, сразу формируем карту и помещаем в блок с идентификатором &#34;map-yandex&#34;
+            ymaps.load(init);
+          });                
+        }
+      }
+    );  
+  }
+  
+  $(function() {
+  
+    //Запускаем основную функцию
+    ymap();
+  
   });
 
-  footerForm.validate({
-    errorClass: "invalid",
-    errorElement: "div",
-    errorPlacement: function (error, element) {
-      if (element.attr("type") == "checkbox") {
-        return element.next('label').append(error);
-      }
-      error.insertAfter($(element));
-    },
-    rules: {
-
-      userName: {
-        required: true,
-        minlength: 2
+  //Валидация формы
+  function validateForm(form){
+    $(form).validate({
+      errorClass: "invalid",
+      rules: {
+        // simple rule, converted to {required:true}
+        userName: {
+          required: true,
+          minlength: 2,
+          maxlength: 10
+        },
+        userPhone: "required",
+        userPhone: {
+          required: true,
+          minlength: 17,
+          maxlength: 400
+        },
+        // compound rule
+        userEmail: {
+          required: true,
+          email: true
+        }
       },
-      userPhone: {
-        required: true,
-        minlength: 17
+      errorElement: "div",
+      messages: {
+        userName: {
+          required: "Имя обязательно",
+          minlength: "Имя не короче 2 букв",
+          maxlength: "Имя не длиннее 10 букв"
+        },
+        userPhone: "Телефон обязателен",
+        userEmail: {
+          required: "Обязательно укажите email",
+          email: "Введите в формате name@domain.com"
+        }
       },
-      userQuestion: "required",
-      policyMark: "required",
-
-    },
-    messages: {
-      userName: {
-        required: "Имя обязательно для заполнения",
-        minlength: "Имя не короче 2-х букв"
-      },
-      userPhone: "Телефон обязателен для заполнения",
-      userQuestion: "Пожалуйста, напишите Ваш вопрос",
-      policyMark: "Обязательно для заполнения",
-    }
-  });
-
-  $('[type=tel]').mask('+7(000) 000-00-00', { placeholder: "Ваш номер телефона:" });
-
-  //видео
+    });
+  }
+  validateForm('.modal__form');
+  validateForm('.hero__form');
+  validateForm('.offering__form');
+  /* маска для телефона */
+  $('[type=tel]').mask('+7(000) 000-00-00', {placeholder: "Ваш номер телефона:"});
 
   var player;
   $('.video__play').on('click', function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-      height: '465',
+      height: '349',
       width: '100%',
-      videoId: 'ef0JqU-4dOc',
+      videoId: 'lyGqyFxBHfM',
       events: {
         'onReady': videoPlay,
       }
@@ -207,41 +288,4 @@ $(document).ready(function () {
   function videoPlay(event) {
     event.target.playVideo();
   }
-
 });
-
-
-// Yandex карта
-YaMapsShown = false;
-YaMapsMinShown = false;
-$(window).scroll(function () {
-  if (!YaMapsShown) {
-    if ($(window).scrollTop() + $(window).height() > $(document).height() - 700) {
-      showYaMaps();
-      YaMapsShown = true;
-    }
-  }
-});
-
-function showYaMaps() {
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac5bb57cf85273372e734f7def62f256953ad064eedb76e5e5b9827bc18ec6a06&amp;width=100%25&amp;height=465&amp;lang=ru_RU&amp;scroll=false";
-  document.getElementById("YaMaps").appendChild(script);
-};
-
-$(window).scroll(function () {
-  if (!YaMapsMinShown) {
-    if ($(window).scrollTop() + $(window).height() > $(document).height() - 500) {
-      showYaMapsMin();
-      YaMapsMinShown = true;
-    }
-  }
-});
-
-function showYaMapsMin() {
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9a60de6cf27682651fbcaac0fd23aa6bf89d1b64045e88a7b770168feac6baa2&amp;width=100%25&amp;height=255&amp;lang=ru_RU&amp;scroll=false";
-  document.getElementById("YaMapsMin").appendChild(script);
-}

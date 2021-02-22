@@ -1,64 +1,35 @@
 *, *:before, *:after
   box-sizing: border-box
-html 
+html
   font-size: 14px
 body
-  font-family: 'Futura Book', sans-serif
+  font-family: 'Roboto', sans-serif
   font-size: 1rem
 img
   max-width: 100%
+.title
+  text-align: center
 .section
-  padding: 60px 0 
-  &--dark
-    background-color: $dark
-    color: $light
   &-title
+    position: relative
+    padding-top: 3.4rem
+    margin-bottom: 0
+    margin-top: 0
+    font-family: 'Roboto Condensed', sans-serif
+    font-size: 2.285rem
+    text-transform: uppercase
+    font-weight: 400
+    line-height: 2.428rem
     text-align: center
-    &--left
-      text-align: left
-      margin-bottom: 2.3rem
-    &--light
-      color: $light
-    &__heading
-      font-family: 'Yeseva One', cursive
-      font-weight: normal
-      text-transform: uppercase
-      line-height: 138.6% 
-      &--primary
-        font-size: 1.92rem
-        line-height: 2.64rem
-        color: $primary
-    &__word
-      display: flex
-      align-items: center
-      &::after
-        content: ''
-        width: 90px
-        height: 1.5px
-        background-color: $primary
-        margin-left: 1.8rem
-    &__text
-      font-size: 1.28rem
-      font-weight: normal
-      line-height: 2.07rem
-      max-width: 31.57rem
-    &__image
+    color: #1b1b1b
+    &__wrapper
+      position: relative
+    &__logo
+      margin-top: 5px
       display: flex
       justify-content: center
-      align-items: center
-      &::before, &::after
-        content: ''
-        width: 32px
-        height: 2px
-        margin: 0 10px
-        background-color: $primary
-    &__description
-      max-width: 53rem
-      margin: auto
-      margin-top: 1.2rem
-      margin-bottom: 3.2rem
-      font-size: 1.43rem
-      font-weight: normal
-      line-height: 135.84%
-      &--down
-        max-width: 32rem
+      padding-bottom: 1.9rem
+    &-bord
+      color: $bord
+
+
